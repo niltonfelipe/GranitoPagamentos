@@ -38,14 +38,14 @@ class WC_granito_API {
 	 *
 	 * @var string
 	 */
-	protected $js_url = 'https://assets.pagar.me/js/granito.min.js';
+	protected $js_url = 'https://gateway.int.granito.xyz/js/granito.min.js';
 
 	/**
 	 * Checkout JS Library URL.
 	 *
 	 * @var string
 	 */
-	protected $checkout_js_url = 'https://assets.pagar.me/checkout/checkout.js';
+	protected $checkout_js_url = 'https://gateway.int.granito.xyz/checkout/checkout.js';
 
 	/**
 	 * Constructor.

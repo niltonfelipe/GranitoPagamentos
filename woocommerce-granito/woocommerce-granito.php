@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: WooCommerce Granito
- * Plugin URI: http://github.com/claudiosmweb/woocommerce-granito
+ * Plugin URI: https://github.com/mrdouglasmorais/GranitoPagamentos
  * Description: Gateway de pagamento Granito para WooCommerce.
  * Author: Granito, Douglas Morais
  * Author URI: https://Granito/

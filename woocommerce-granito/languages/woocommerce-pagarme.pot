@@ -103,7 +103,7 @@ msgstr ""
 #: includes/class-wc-granito-api.php:630
 #: includes/class-wc-granito-credit-card-gateway.php:146
 #: templates/credit-card/payment-form.php:36
-msgid "Installments"
+msgid "CVV"
 msgstr ""
 
 #: includes/class-wc-granito-api.php:631
@@ -350,7 +350,7 @@ msgid "Number of Installment"
 msgstr ""
 
 #: includes/class-wc-granito-credit-card-gateway.php:155
-msgid "Maximum number of installments possible with payments by credit card."
+msgid "Maximum number of CVV possible with payments by credit card."
 msgstr ""
 
 #: includes/class-wc-granito-credit-card-gateway.php:173
@@ -446,15 +446,15 @@ msgid "Payment successfully made using %1$s credit card in %2$s."
 msgstr ""
 
 #: templates/credit-card/payment-form.php:17
-msgid "Card Holder Name"
+msgid "Nome impresso no cartão"
 msgstr ""
 
 #: templates/credit-card/payment-form.php:21
-msgid "Card Number"
+msgid "Número do cartão"
 msgstr ""
 
 #: templates/credit-card/payment-form.php:26
-msgid "Expiry (MM/YY)"
+msgid "Validade (Mês / Ano)"
 msgstr ""
 
 #: templates/credit-card/payment-form.php:27
@@ -462,7 +462,7 @@ msgid "MM / YY"
 msgstr ""
 
 #: templates/credit-card/payment-form.php:30
-msgid "Card Code"
+msgid "CVV"
 msgstr ""
 
 #: templates/credit-card/payment-form.php:31
@@ -494,7 +494,7 @@ msgid "Credit Card Settings"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
-msgid "http://github.com/claudiosmweb/woocommerce-granito"
+msgid "https://github.com/mrdouglasmorais/GranitoPagamentos"
 msgstr ""
 
 #. Description of the plugin/theme
@@ -506,7 +506,7 @@ msgid "Granito, Douglas Morais"
 msgstr ""
 
 #. Author URI of the plugin/theme
-msgid "https://Granito/"
+msgid "https://github.com/mrdouglasmorais/GranitoPagamentos"
 msgstr ""
 
 #: includes/class-wc-granito-credit-card-gateway.php:194

@@ -14,20 +14,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <fieldset id="granito-credit-cart-form">
 	<p class="form-row form-row-first">
-		<label for="granito-card-holder-name"><?php esc_html_e( 'Card Holder Name', 'woocommerce-granito' ); ?><span class="required">*</span></label>
+		<label for="granito-card-holder-name"><?php esc_html_e( 'Nome impresso no cartão', 'woocommerce-granito' ); ?><span class="required">*</span></label>
 		<input id="granito-card-holder-name" class="input-text" type="text" autocomplete="off" style="font-size: 1.5em; padding: 8px;" />
 	</p>
 	<p class="form-row form-row-last">
-		<label for="granito-card-number"><?php esc_html_e( 'Card Number', 'woocommerce-granito' ); ?> <span class="required">*</span></label>
+		<label for="granito-card-number"><?php esc_html_e( 'Número do cartão', 'woocommerce-granito' ); ?> <span class="required">*</span></label>
 		<input id="granito-card-number" class="input-text wc-credit-card-form-card-number" type="text" maxlength="20" autocomplete="off" placeholder="&bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull;" style="font-size: 1.5em; padding: 8px;" />
 	</p>
 	<div class="clear"></div>
 	<p class="form-row form-row-first">
-		<label for="granito-card-expiry"><?php esc_html_e( 'Expiry (MM/YY)', 'woocommerce-granito' ); ?> <span class="required">*</span></label>
+		<label for="granito-card-expiry"><?php esc_html_e( 'Validade (Mês / Ano)', 'woocommerce-granito' ); ?> <span class="required">*</span></label>
 		<input id="granito-card-expiry" class="input-text wc-credit-card-form-card-expiry" type="text" autocomplete="off" placeholder="<?php esc_html_e( 'MM / YY', 'woocommerce-granito' ); ?>" style="font-size: 1.5em; padding: 8px;" />
 	</p>
 	<p class="form-row form-row-last">
-		<label for="granito-card-cvc"><?php esc_html_e( 'Card Code', 'woocommerce-granito' ); ?> <span class="required">*</span></label>
+		<label for="granito-card-cvc"><?php esc_html_e( 'CVV', 'woocommerce-granito' ); ?> <span class="required">*</span></label>
 		<input id="granito-card-cvc" class="input-text wc-credit-card-form-card-cvc" type="text" autocomplete="off" placeholder="<?php esc_html_e( 'CVC', 'woocommerce-granito' ); ?>" style="font-size: 1.5em; padding: 8px;" />
 	</p>
 	<div class="clear"></div>
