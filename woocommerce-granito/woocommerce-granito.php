@@ -4,32 +4,32 @@
  * Plugin URI: https://github.com/mrdouglasmorais/GranitoPagamentos
  * Description: Gateway de pagamento Granito para WooCommerce.
  * Author: Granito, Douglas Morais
- * Author URI: https://Granito/
- * Version: 2.0.15
+ * Author URI: https://granito.com.vc/
+ * Version: 1.0.12
  * License: GPLv2 or later
  * Text Domain: woocommerce-granito
  * Domain Path: /languages/
  *
- * @package WooCommerce_granito
+ * @package WooCommerce_Granito
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'WC_granito' ) ) :
+if ( ! class_exists( 'WC_Granito' ) ) :
 
 	/**
-	 * WooCommerce WC_granito main class.
+	 * WooCommerce WC_Granito main class.
 	 */
-	class WC_granito {
+	class WC_Granito {
 
 		/**
 		 * Plugin version.
 		 *
 		 * @var string
 		 */
-		const VERSION = '1.0.0';
+		const VERSION = '2.0.14';
 
 		/**
 		 * Instance of this class.
@@ -77,6 +77,7 @@ if ( ! class_exists( 'WC_granito' ) ) :
 		private function includes() {
 			include_once dirname( __FILE__ ) . '/includes/class-wc-granito-api.php';
 			include_once dirname( __FILE__ ) . '/includes/class-wc-granito-my-account.php';
+			include_once dirname( __FILE__ ) . '/includes/class-wc-granito-banking-ticket-gateway.php';
 			include_once dirname( __FILE__ ) . '/includes/class-wc-granito-credit-card-gateway.php';
 		}
 
@@ -104,8 +105,8 @@ if ( ! class_exists( 'WC_granito' ) ) :
 		 * @return array
 		 */
 		public function add_gateway( $methods ) {
-			$methods[] = 'WC_granito_Banking_Ticket_Gateway';
-			$methods[] = 'WC_granito_Credit_Card_Gateway';
+			$methods[] = 'WC_Granito_Banking_Ticket_Gateway';
+			$methods[] = 'WC_Granito_Credit_Card_Gateway';
 
 			return $methods;
 		}
@@ -120,12 +121,12 @@ if ( ! class_exists( 'WC_granito' ) ) :
 		public function plugin_action_links( $links ) {
 			$plugin_links = array();
 
-			$banking_ticket = 'wc_granito_banking_ticket_gateway';
-			$credit_card    = 'wc_granito_credit_card_gateway';
+			//$banking_ticket = 'WC_Granito_banking_ticket_gateway';
+			$credit_card    = 'WC_Granito_credit_card_gateway';
 
-			$plugin_links[] = '<a href="' . esc_url( admin_url( 'admin.php?page=wc-settings&tab=checkout&section=' . $banking_ticket ) ) . '">' . __( 'Bank Slip Settings', 'woocommerce-granito' ) . '</a>';
+			/*$plugin_links[] = '<a href="' . esc_url( admin_url( 'admin.php?page=wc-settings&tab=checkout&section=' . $banking_ticket ) ) . '">' . __( 'Bank Slip Settings', 'woocommerce-granito' ) . '</a>';*/
 
-			$plugin_links[] = '<a href="' . esc_url( admin_url( 'admin.php?page=wc-settings&tab=checkout&section=' . $credit_card ) ) . '">' . __( 'Credit Card Settings', 'woocommerce-granito' ) . '</a>';
+			$plugin_links[] = '<a href="' . esc_url( admin_url( 'admin.php?page=wc-settings&tab=checkout&section=' . $credit_card ) ) . '">' . __( 'Configurações de cartão de crédito', 'woocommerce-granito' ) . '</a>';
 
 			return array_merge( $plugin_links, $links );
 		}
@@ -144,7 +145,7 @@ if ( ! class_exists( 'WC_granito' ) ) :
 		 */
 		private function upgrade() {
 			if ( is_admin() ) {
-				if ( $old_options = get_option( 'woocommerce_granito_settings' ) ) {
+				if ( $old_options = get_option( 'WooCommerce_Granito_settings' ) ) {
 					// Banking ticket options.
 					$banking_ticket = array(
 						'enabled'        => $old_options['enabled'],
@@ -170,15 +171,15 @@ if ( ! class_exists( 'WC_granito' ) ) :
 						'debug'                => $old_options['debug'],
 					);
 
-					update_option( 'woocommerce_granito-banking-ticket_settings', $banking_ticket );
-					update_option( 'woocommerce_granito-credit-card_settings', $credit_card );
+					//update_option( 'WooCommerce_Granito-banking-ticket_settings', $banking_ticket );
+					update_option( 'WooCommerce_Granito-credit-card_settings', $credit_card );
 
-					delete_option( 'woocommerce_granito_settings' );
+					delete_option( 'WooCommerce_Granito_settings' );
 				}
 			}
 		}
 	}
 
-	add_action( 'plugins_loaded', array( 'WC_granito', 'get_instance' ) );
+	add_action( 'plugins_loaded', array( 'WC_Granito', 'get_instance' ) );
 
 endif;

@@ -2,7 +2,7 @@
 /**
  * Notice: Missing WooCommerce.
  *
- * @package WooCommerce_granito/Admin/Notices
+ * @package WooCommerce_Granito/Admin/Notices
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -19,7 +19,7 @@ if ( function_exists( 'get_plugins' ) ) {
 ?>
 
 <div class="error">
-	<p><strong><?php esc_html_e( 'WooCommerce Granito', 'woocommerce-granito' ); ?></strong> <?php esc_html_e( 'depends on the last version of WooCommerce to work!', 'woocommerce-granito' ); ?></p>
+	<p><strong><?php esc_html_e( 'WooCommerce Granito', 'woocommerce-granito' ); ?></strong> <?php esc_html_e( 'depende da última versão do WooCommerce para funcionar!', 'woocommerce-granito' ); ?></p>
 
 	<?php if ( $is_installed && current_user_can( 'install_plugins' ) ) : ?>
 		<p><a href="<?php echo esc_url( wp_nonce_url( self_admin_url( 'plugins.php?action=activate&plugin=woocommerce/woocommerce.php&plugin_status=active' ), 'activate-plugin_woocommerce/woocommerce.php' ) ); ?>" class="button button-primary"><?php esc_html_e( 'Active WooCommerce', 'woocommerce-granito' ); ?></a></p>
@@ -27,7 +27,7 @@ if ( function_exists( 'get_plugins' ) ) {
 		<?php if ( current_user_can( 'install_plugins' ) ) : ?>
 			<p><a href="<?php echo esc_url( wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=woocommerce' ), 'install-plugin_woocommerce' ) ); ?>" class="button button-primary"><?php esc_html_e( 'Install WooCommerce', 'woocommerce-granito' ); ?></a></p>
 		<?php else : ?>
-			<p><a href="http://wordpress.org/plugins/woocommerce/" class="button button-primary"><?php esc_html_e( 'Install WooCommerce', 'woocommerce-granito' ); ?></a></p>
+			<p><a href="http://wordpress.org/plugins/woocommerce/" class="button button-primary"><?php esc_html_e( 'Instale o WooCommerce', 'woocommerce-granito' ); ?></a></p>
 		<?php endif; ?>
 	<?php endif; ?>
 </div>

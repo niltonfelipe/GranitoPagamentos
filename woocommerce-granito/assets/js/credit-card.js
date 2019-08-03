@@ -1,4 +1,4 @@
-/* global wcGranitoParams, granito */
+/* global wcgranitoParams, granito */
 (function( $ ) {
 	'use strict';
 

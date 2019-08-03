@@ -2,7 +2,7 @@
 /**
  * Admin options screen.
  *
- * @package WooCommerce_granito/Admin/Settings
+ * @package WooCommerce_Granito/Admin/Settings
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

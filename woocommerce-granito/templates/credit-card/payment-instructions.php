@@ -3,7 +3,7 @@
  * Credit Card - Payment instructions.
  *
  * @author  Granito
- * @package WooCommerce_granito/Templates
+ * @package WooCommerce_Granito/Templates
  * @version 2.0.0
  */
 

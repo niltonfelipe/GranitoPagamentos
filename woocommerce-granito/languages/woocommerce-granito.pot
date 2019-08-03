@@ -1,4 +1,4 @@
-# Copyright (C) 2019 Granito, Douglas Morais
+# Copyright (C) 2019 Granito, Claudio Sanches
 # This file is distributed under the GPLv2 or later.
 msgid ""
 msgstr ""
@@ -103,7 +103,7 @@ msgstr ""
 #: includes/class-wc-granito-api.php:630
 #: includes/class-wc-granito-credit-card-gateway.php:146
 #: templates/credit-card/payment-form.php:36
-msgid "CVV"
+msgid "Parcelas"
 msgstr ""
 
 #: includes/class-wc-granito-api.php:631
@@ -239,13 +239,13 @@ msgstr ""
 
 #: includes/class-wc-granito-banking-ticket-gateway.php:106
 #: includes/class-wc-granito-credit-card-gateway.php:112
-msgid "Granito API Key"
+msgid "Iss"
 msgstr ""
 
 #: includes/class-wc-granito-banking-ticket-gateway.php:108
 #: includes/class-wc-granito-credit-card-gateway.php:114
 msgid ""
-"Please enter your Granito API Key. This is needed to process the payment "
+"Please enter your Iss. This is needed to process the payment "
 "and notifications. Is possible get your API Key in %s."
 msgstr ""
 
@@ -253,18 +253,20 @@ msgstr ""
 #: includes/class-wc-granito-banking-ticket-gateway.php:117
 #: includes/class-wc-granito-credit-card-gateway.php:114
 #: includes/class-wc-granito-credit-card-gateway.php:123
-msgid "Granito Dashboard > My Account page"
+msgid "Granito Dashboard > Minha conta"
 msgstr ""
 
 #: includes/class-wc-granito-banking-ticket-gateway.php:115
 #: includes/class-wc-granito-credit-card-gateway.php:121
-msgid "Granito Encryption Key"
+msgid "
+Secret key"
 msgstr ""
 
 #: includes/class-wc-granito-banking-ticket-gateway.php:117
 #: includes/class-wc-granito-credit-card-gateway.php:123
 msgid ""
-"Please enter your Granito Encryption key. This is needed to process the "
+"Please enter your 
+Secret key. This is needed to process the "
 "payment. Is possible get your Encryption Key in %s."
 msgstr ""
 
@@ -280,7 +282,7 @@ msgstr ""
 
 #: includes/class-wc-granito-banking-ticket-gateway.php:130
 #: includes/class-wc-granito-credit-card-gateway.php:210
-msgid "Gateway Testing"
+msgid "Gateway testes"
 msgstr ""
 
 #: includes/class-wc-granito-banking-ticket-gateway.php:135
@@ -295,7 +297,7 @@ msgstr ""
 
 #: includes/class-wc-granito-banking-ticket-gateway.php:139
 #: includes/class-wc-granito-credit-card-gateway.php:219
-msgid "Log Granito events, such as API requests. You can check the log in %s"
+msgid "Registre eventos Granito, como solicitações de API. Você pode verificar o log in %s"
 msgstr ""
 
 #: includes/class-wc-granito-banking-ticket-gateway.php:139
@@ -324,7 +326,7 @@ msgid "Checkout Granito"
 msgstr ""
 
 #: includes/class-wc-granito-credit-card-gateway.php:132
-msgid "Enable checkout Granito"
+msgid "Habilitar checkout Granito"
 msgstr ""
 
 #: includes/class-wc-granito-credit-card-gateway.php:135
@@ -334,27 +336,27 @@ msgid ""
 msgstr ""
 
 #: includes/class-wc-granito-credit-card-gateway.php:138
-msgid "Register Refused Order"
+msgid "Registrar pedido recusado"
 msgstr ""
 
 #: includes/class-wc-granito-credit-card-gateway.php:140
-msgid "Register order for refused transactions"
+msgid "Registrar pedidos recusados"
 msgstr ""
 
 #: includes/class-wc-granito-credit-card-gateway.php:143
-msgid "Register order for refused transactions when Granito Checkout is enabled"
+msgid "Registrar pedido para transações recusadas when Granito Checkout is enabled"
 msgstr ""
 
 #: includes/class-wc-granito-credit-card-gateway.php:151
-msgid "Number of Installment"
+msgid "Número de parcelas"
 msgstr ""
 
 #: includes/class-wc-granito-credit-card-gateway.php:155
-msgid "Maximum number of CVV possible with payments by credit card."
+msgid "Maximum number of installments possible with payments by credit card."
 msgstr ""
 
 #: includes/class-wc-granito-credit-card-gateway.php:173
-msgid "Smallest Installment"
+msgid "Menor parcela"
 msgstr ""
 
 #: includes/class-wc-granito-credit-card-gateway.php:175
@@ -364,7 +366,7 @@ msgid ""
 msgstr ""
 
 #: includes/class-wc-granito-credit-card-gateway.php:180
-msgid "Interest rate"
+msgid "Taxa de juros"
 msgstr ""
 
 #: includes/class-wc-granito-credit-card-gateway.php:182
@@ -374,7 +376,7 @@ msgid ""
 msgstr ""
 
 #: includes/class-wc-granito-credit-card-gateway.php:187
-msgid "Free Installments"
+msgid "Parcelas sem juros"
 msgstr ""
 
 #: includes/class-wc-granito-credit-card-gateway.php:191
@@ -450,11 +452,11 @@ msgid "Nome impresso no cartão"
 msgstr ""
 
 #: templates/credit-card/payment-form.php:21
-msgid "Número do cartão"
+msgid "Card Number"
 msgstr ""
 
 #: templates/credit-card/payment-form.php:26
-msgid "Validade (Mês / Ano)"
+msgid "Expiry (MM/YY)"
 msgstr ""
 
 #: templates/credit-card/payment-form.php:27
@@ -462,7 +464,7 @@ msgid "MM / YY"
 msgstr ""
 
 #: templates/credit-card/payment-form.php:30
-msgid "CVV"
+msgid "Card Code"
 msgstr ""
 
 #: templates/credit-card/payment-form.php:31
@@ -494,7 +496,7 @@ msgid "Credit Card Settings"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
-msgid "https://github.com/mrdouglasmorais/GranitoPagamentos"
+msgid "http://github.com/claudiosmweb/woocommerce-granito"
 msgstr ""
 
 #. Description of the plugin/theme
@@ -502,11 +504,11 @@ msgid "Gateway de pagamento Granito para WooCommerce."
 msgstr ""
 
 #. Author of the plugin/theme
-msgid "Granito, Douglas Morais"
+msgid "Granito, Claudio Sanches"
 msgstr ""
 
 #. Author URI of the plugin/theme
-msgid "https://github.com/mrdouglasmorais/GranitoPagamentos"
+msgid "https://Granito/"
 msgstr ""
 
 #: includes/class-wc-granito-credit-card-gateway.php:194

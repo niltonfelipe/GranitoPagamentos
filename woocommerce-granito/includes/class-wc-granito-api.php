@@ -2,7 +2,7 @@
 /**
  * Granito API
  *
- * @package WooCommerce_granito/API
+ * @package WooCommerce_Granito/API
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -10,14 +10,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * WC_granito_API class.
+ * WC_Granito_API class.
  */
-class WC_granito_API {
+class WC_Granito_API {
 
 	/**
 	 * API URL.
 	 */
-	const API_URL = 'https://gateway.int.granito.xyz';
+	const API_URL = 'https://gateway.int.granito.xyz/';
 
 	/**
 	 * Gateway class.
@@ -31,21 +31,21 @@ class WC_granito_API {
 	 *
 	 * @var string
 	 */
-	protected $api_url = 'https://gateway.int.granito.xyz';
+	protected $api_url = 'https://gateway.int.granito.xyz/';
 
 	/**
 	 * JS Library URL.
 	 *
 	 * @var string
 	 */
-	protected $js_url = 'https://gateway.int.granito.xyz/js/granito.min.js';
+	protected $js_url = 'https://ecommerce.int.granito.xyz/js/paymentmethodnonce.min.js';
 
 	/**
 	 * Checkout JS Library URL.
 	 *
 	 * @var string
 	 */
-	protected $checkout_js_url = 'https://gateway.int.granito.xyz/checkout/checkout.js';
+	protected $checkout_js_url = 'https://ecommerce.int.granito.xyz/js/checkout/checkout.min.js';
 
 	/**
 	 * Constructor.
@@ -181,7 +181,7 @@ class WC_granito_API {
 
 		if ( is_wp_error( $response ) ) {
 			if ( 'yes' === $this->gateway->debug ) {
-				$this->gateway->log->add( $this->gateway->id, 'WP_Error in getting the installments: ' . $response->get_error_message() );
+				$this->gateway->log->add( $this->gateway->id, 'WP_Error na obtenção das parcelas: ' . $response->get_error_message() );
 			}
 
 			return array();
@@ -192,7 +192,7 @@ class WC_granito_API {
 				$installments = $_installments['installments'];
 
 				if ( 'yes' === $this->gateway->debug ) {
-					$this->gateway->log->add( $this->gateway->id, 'Installments generated successfully: ' . print_r( $_installments, true ) );
+					$this->gateway->log->add( $this->gateway->id, 'Parcelas geradas com sucesso: ' . print_r( $_installments, true ) );
 				}
 
 				set_transient( $transient_id, $installments, MINUTE_IN_SECONDS * 5 );
@@ -323,7 +323,7 @@ class WC_granito_API {
 			}
 
 			// Validate the installments.
-			if ( apply_filters( 'wc_granito_allow_credit_card_installments_validation', isset( $posted['granito_installments'] ), $order ) ) {
+			if ( apply_filters( 'WC_Granito_allow_credit_card_installments_validation', isset( $posted['granito_installments'] ), $order ) ) {
 				$_installment = $posted['granito_installments'];
 
 				$data['installments'] = $_installment;
@@ -344,7 +344,7 @@ class WC_granito_API {
 		}
 
 		// Add filter for Third Party plugins.
-		return apply_filters( 'wc_granito_transaction_data', $data , $order );
+		return apply_filters( 'WC_Granito_transaction_data', $data , $order );
 	}
 
 	/**
@@ -486,7 +486,7 @@ class WC_granito_API {
 			),
 		);
 
-		return apply_filters( 'wc_granito_checkout_data', $data );
+		return apply_filters( 'WC_Granito_checkout_data', $data );
 	}
 
 	/**
@@ -627,11 +627,11 @@ class WC_granito_API {
 		$meta_data = array(
 			__( 'Banking Ticket URL', 'woocommerce-granito' ) => sanitize_text_field( $data['boleto_url'] ),
 			__( 'Credit Card', 'woocommerce-granito' )        => $this->get_card_brand_name( sanitize_text_field( $data['card_brand'] ) ),
-			__( 'Installments', 'woocommerce-granito' )       => sanitize_text_field( $data['installments'] ),
+			__( 'Parcelas', 'woocommerce-granito' )       => sanitize_text_field( $data['installments'] ),
 			__( 'Total paid', 'woocommerce-granito' )         => number_format( intval( $data['amount'] ) / 100, wc_get_price_decimals(), wc_get_price_decimal_separator(), wc_get_price_thousand_separator() ),
 			__( 'Anti Fraud Score', 'woocommerce-granito' )   => sanitize_text_field( $data['antifraud_score'] ),
-			'_wc_granito_transaction_data'                    => $payment_data,
-			'_wc_granito_transaction_id'                      => intval( $data['id'] ),
+			'_WC_Granito_transaction_data'                    => $payment_data,
+			'_WC_Granito_transaction_id'                      => intval( $data['id'] ),
 			'_transaction_id'                                 => intval( $data['id'] ),
 		);
 
@@ -759,7 +759,7 @@ class WC_granito_API {
 			$this->process_successful_ipn( $ipn_response );
 
 			// Deprecated action since 2.0.0.
-			do_action( 'wc_granito_valid_ipn_request', $ipn_response );
+			do_action( 'WC_Granito_valid_ipn_request', $ipn_response );
 
 			exit;
 		} else {
@@ -776,7 +776,7 @@ class WC_granito_API {
 		global $wpdb;
 
 		$posted   = wp_unslash( $posted );
-		$order_id = absint( $wpdb->get_var( $wpdb->prepare( "SELECT post_id FROM $wpdb->postmeta WHERE meta_key = '_wc_granito_transaction_id' AND meta_value = %d", $posted['id'] ) ) );
+		$order_id = absint( $wpdb->get_var( $wpdb->prepare( "SELECT post_id FROM $wpdb->postmeta WHERE meta_key = '_WC_Granito_transaction_id' AND meta_value = %d", $posted['id'] ) ) );
 		$order    = wc_get_order( $order_id );
 		$status   = sanitize_text_field( $posted['current_status'] );
 
@@ -786,9 +786,9 @@ class WC_granito_API {
 
 		// Async transactions will only send the boleto_url on IPN.
 		if ( ! empty( $posted['transaction']['boleto_url'] ) && 'granito-banking-ticket' === $order->payment_method ) {
-			$post_data = get_post_meta( $order->id, '_wc_granito_transaction_data', true );
+			$post_data = get_post_meta( $order->id, '_WC_Granito_transaction_data', true );
 			$post_data['boleto_url'] = sanitize_text_field( $posted['transaction']['boleto_url'] );
-			update_post_meta( $order->id, '_wc_granito_transaction_data', $post_data );
+			update_post_meta( $order->id, '_WC_Granito_transaction_data', $post_data );
 		}
 	}
 
@@ -811,7 +811,7 @@ class WC_granito_API {
 
 				break;
 			case 'pending_review':
-				$transaction_id  = get_post_meta( $order->id, '_wc_granito_transaction_id', true );
+				$transaction_id  = get_post_meta( $order->id, '_WC_Granito_transaction_id', true );
 				$transaction_url = '<a href="https://dashboard.Granito/#/transactions/' . intval( $transaction_id ) . '">https://dashboard.Granito/#/transactions/' . intval( $transaction_id ) . '</a>';
 
 				/* translators: %s transaction details url */
@@ -838,7 +838,7 @@ class WC_granito_API {
 			case 'refused' :
 				$order->update_status( 'failed', __( 'Granito: The transaction was rejected by the card company or by fraud.', 'woocommerce-granito' ) );
 
-				$transaction_id  = get_post_meta( $order->id, '_wc_granito_transaction_id', true );
+				$transaction_id  = get_post_meta( $order->id, '_WC_Granito_transaction_id', true );
 				$transaction_url = '<a href="https://dashboard.Granito/#/transactions/' . intval( $transaction_id ) . '">https://dashboard.Granito/#/transactions/' . intval( $transaction_id ) . '</a>';
 
 				$this->send_email(
@@ -851,7 +851,7 @@ class WC_granito_API {
 			case 'refunded' :
 				$order->update_status( 'refunded', __( 'Granito: The transaction was refunded/canceled.', 'woocommerce-granito' ) );
 
-				$transaction_id  = get_post_meta( $order->id, '_wc_granito_transaction_id', true );
+				$transaction_id  = get_post_meta( $order->id, '_WC_Granito_transaction_id', true );
 				$transaction_url = '<a href="https://dashboard.Granito/#/transactions/' . intval( $transaction_id ) . '">https://dashboard.Granito/#/transactions/' . intval( $transaction_id ) . '</a>';
 
 				$this->send_email(

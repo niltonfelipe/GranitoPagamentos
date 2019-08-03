@@ -38,7 +38,7 @@ class WC_Granito_My_Account {
 			return $actions;
 		}
 
-		$data = get_post_meta( $order->id, '_wc_granito_transaction_data', true );
+		$data = get_post_meta( $order->id, '_WC_Granito_transaction_data', true );
 		if ( ! empty( $data['boleto_url'] ) ) {
 			$actions[] = array(
 				'url'  => $data['boleto_url'],

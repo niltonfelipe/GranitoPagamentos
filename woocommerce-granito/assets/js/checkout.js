@@ -1,4 +1,4 @@
-/* global wcGranitoParams, GranitoMeCheckout */
+/* global wcGranitoParams, GranitoCheckout */
 (function( $ ) {
 	'use strict';
 
@@ -11,7 +11,7 @@
 		} );
 
 		$( 'form.checkout' ).on( 'checkout_place_order_granito-credit-card', {
-			preserveGranitoMeCheckoutSubmitValue: true
+			preserveGranitoCheckoutSubmitValue: true
 		}, isCheckoutInvalid );
 
 		$( 'form#order_review' ).submit( function() {
@@ -58,7 +58,7 @@
 			// let submit proceed by returning true immediately.
 			if ( formSubmit ) {
 				if ( 'undefined' !== typeof evt && 'undefined' !== typeof evt.data ) {
-					if ( 'undefined' !== typeof evt.data.preserveGranitoMeCheckoutSubmitValue && ! evt.data.preserveGranitoMeCheckoutSubmitValue ) {
+					if ( 'undefined' !== typeof evt.data.preserveGranitoCheckoutSubmitValue && ! evt.data.preserveGranitoCheckoutSubmitValue ) {
 						formSubmit = false;
 					}
 				}
@@ -207,7 +207,7 @@
 				inline_data = $( '#granito-checkout-params', form );
 
 			// Create checkout.
-			checkout = new GranitoMeCheckout.Checkout({
+			checkout = new GranitoCheckout.Checkout({
 				encryption_key: wcGranitoParams.encryptionKey,
 				success: function( data ) {
 					formSubmit = true;
