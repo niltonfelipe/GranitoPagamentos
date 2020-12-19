@@ -1,5 +1,5 @@
 # GranitoPagamentos
-granito pagmentos API
+Granito pagmentos API
 
 
 Integração com BMG Granito:
